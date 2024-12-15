@@ -124,7 +124,7 @@
    make
    ```
 
-3. **执行可执行文件。**示例包含 4 个进程，分别是 1 个 CPU 进程和 3 个 GPU 进程。必须在 `benchmark/matmul` 目录执行。
+3. **执行可执行文件**示例包含 4 个进程，分别是 1 个 CPU 进程和 3 个 GPU 进程。必须在 `benchmark/matmul` 目录执行。
 
    ```bash
    ../../interchiplet/bin/interchiplet ./matmul.yml
