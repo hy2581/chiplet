@@ -1,0 +1,86 @@
+[
+    {
+        "name":"SM6_TITANX",
+        "power": 0,
+        "area": 601,
+        "cost": 1448 ,
+        "common_compoutitly": 0,
+        "accelerate_compoutitly": 3.3627,
+        "cpu_memory": 0,
+        "gpu_memory": 12000,
+        "is_cpu": 0,
+        "is_gpu": 1
+    },
+    {
+        "name":"SM75_RTX2060",
+        "power": 0,
+        "area": 445,
+        "cost": 2142 ,
+        "common_compoutitly": 0,
+        "accelerate_compoutitly": 4.8757,
+        "cpu_memory": 0,
+        "gpu_memory": 6000,
+        "is_cpu": 0,
+        "is_gpu": 1
+    },
+    {
+        "name":"SM2_GTX480",
+        "power": 0,
+        "area": 529,
+        "cost": 742 ,
+        "common_compoutitly": 0,
+        "accelerate_compoutitly": 2.6092,
+        "cpu_memory": 0,
+        "gpu_memory": 1500,
+        "is_cpu": 0,
+        "is_gpu": 1
+    },
+    {
+        "name":"SM7_QV100",
+        "power": 0,
+        "area": 1029,
+        "cost": 2142 ,
+        "common_compoutitly": 0,
+        "accelerate_compoutitly": 12.929,
+        "cpu_memory": 0,
+        "gpu_memory": 12000,
+        "is_cpu": 0,
+        "is_gpu": 1
+    },
+    {
+        "name":"O3CPU_01",
+        "power": 0,
+        "area": 1129,
+        "cost": 1000 ,
+        "common_compoutitly": 5.1327,
+        "accelerate_compoutitly": 0,
+        "cpu_memory": 0.512,
+        "gpu_memory": 0,
+        "is_cpu": 1,
+        "is_gpu": 0
+    },
+    {
+        "name":"O3CPU_02",
+        "power": 0,
+        "area": 929,
+        "cost": 900 ,
+        "common_compoutitly": 5.1109,
+        "accelerate_compoutitly": 0,
+        "cpu_memory": 0.256,
+        "gpu_memory": 0,
+        "is_cpu": 1,
+        "is_gpu": 0
+    },
+    {
+        "name":"O3CPU_03",
+        "power": 0,
+        "area": 1129,
+        "cost": 1100,
+        "common_compoutitly": 5.1330,
+        "accelerate_compoutitly": 0,
+        "cpu_memory": 1.024,
+        "gpu_memory": 0,
+        "is_cpu": 1,
+        "is_gpu": 0
+    }
+]

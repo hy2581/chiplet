@@ -1,0 +1,61 @@
+# Phase 1 configuration.
+phase1:
+  # Process 0
+  - cmd: "$BENCHMARK_ROOT/bin/matmul_cu"
+    args: ["1", "0"]
+    log: "gpgpusim.1.0.log"
+    is_to_stdout: false
+    clock_rate: 1
+    pre_copy: "$SIMULATOR_ROOT/gpgpu-sim/configs/tested-cfgs/SM75_RTX2060/*"
+  # Process 1
+  - cmd: "$BENCHMARK_ROOT/bin/matmul_cu"
+    args: ["2", "0"]
+    log: "gpgpusim.2.0.log"
+    is_to_stdout: false
+    clock_rate: 1
+    pre_copy: "$SIMULATOR_ROOT/gpgpu-sim/configs/tested-cfgs/SM75_RTX2060/*"
+  # Process 2
+  - cmd: "$BENCHMARK_ROOT/bin/matmul_cu"
+    args: ["3", "0"]
+    log: "gpgpusim.3.0.log"
+    is_to_stdout: false
+    clock_rate: 1
+    pre_copy: "$SIMULATOR_ROOT/gpgpu-sim/configs/tested-cfgs/SM75_RTX2060/*"
+  # Process 3
+  - cmd: "$BENCHMARK_ROOT/bin/matmul_cu"
+    args: ["4", "0"]
+    log: "gpgpusim.4.0.log"
+    is_to_stdout: false
+    clock_rate: 1
+    pre_copy: "$SIMULATOR_ROOT/gpgpu-sim/configs/tested-cfgs/SM75_RTX2060/*"
+  # Process 4
+  - cmd: "$SIMULATOR_ROOT/gem5/build/X86/gem5.opt"
+    args: ["$SIMULATOR_ROOT/gem5/configs/deprecated/example/se.py", "--cpu-type", "O3CPU", "--l1d_size=128kB", "--l1i_size=32kB", "--l2_size=512kB", "--caches", "--l2cache", "--cmd", "$BENCHMARK_ROOT/bin/matmul_c", "-o", "0 0"]
+    log: "gem5.0_0.log"
+    is_to_stdout: false
+    clock_rate: 500
+  # Process 5
+  - cmd: "$SIMULATOR_ROOT/gem5/build/X86/gem5.opt"
+    args: ["$SIMULATOR_ROOT/gem5/configs/deprecated/example/se.py", "--cpu-type", "O3CPU", "--l1d_size=128kB", "--l1i_size=32kB", "--l2_size=512kB", "--caches", "--l2cache", "--cmd", "$BENCHMARK_ROOT/bin/matmul_c", "-o", "0 1"]
+    log: "gem5.0_1.log"
+    is_to_stdout: false
+    clock_rate: 500
+  # Process 6
+  - cmd: "$SIMULATOR_ROOT/gem5/build/X86/gem5.opt"
+    args: ["$SIMULATOR_ROOT/gem5/configs/deprecated/example/se.py", "--cpu-type", "O3CPU", "--l1d_size=128kB", "--l1i_size=32kB", "--l2_size=512kB", "--caches", "--l2cache", "--cmd", "$BENCHMARK_ROOT/bin/matmul_c", "-o", "0 2"]
+    log: "gem5.0_2.log"
+    is_to_stdout: false
+    clock_rate: 500
+
+# Phase 2 configuration.
+phase2:
+  # Process 0
+  - cmd: "$SIMULATOR_ROOT/popnet_chiplet/build/popnet"
+    args: ["-A", "7", "-c", "2", "-V", "18", "-B", "20", "-O", "20", "-F", "10", "-L", "1000", "-T", "10000000", "-r", "1", "-I", "../bench.txt", "-R", "0", "-D", "../delayInfo.txt", "-P"]
+    log: "popnet_0.log"
+    is_to_stdout: false
+    clock_rate: 1
+
+# File configuration. (Not used yet)
+bench_file: "./bench.txt"
+delayinfo_file: "./delayInfo.txt"

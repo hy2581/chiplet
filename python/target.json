@@ -1,0 +1,11 @@
+{
+    "area_max":1400,
+    "common_compoutitly_min":5.1,
+    "accelerate_compoutitly_min":3,
+    "cpu_memory_min":0.200,
+    "gpu_memory_min":6000,
+    "cpu_num_min":1,
+    "cpu_num_max":10,
+    "gpu_num_min":1,
+    "gpu_num_max":10
+}

@@ -1,0 +1,27 @@
+---
+# 表示当前配置文件是基于llvm风格的
+BasedOnStyle: LLVM
+# 默认的缩进宽度是4个空格
+IndentWidth: 4
+---
+# 当前配置语言的区段是c++
+Language: Cpp
+DerivePointerAlignment: false
+# 指针的对齐方式为左对齐
+PointerAlignment: Left
+---
+# 当前配置语言为JS
+Language: JavaScript
+# 代码列数的最大值为100
+ColumnLimit: 100
+---
+# 当前配置语言为protobuf
+Language: Proto
+# 表示不格式化protobuf代码
+DisableFormat: true
+---
+# 表示当前语言为 c#
+Language: CSharp
+# 表示c#代码的单行字符限制为100
+ColumnLimit: 100
+...

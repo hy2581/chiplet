@@ -217,7 +217,7 @@ YAML配置文件的第一层支持的关键字是：
 ```
 $SIMULATOR_ROOT/interchiplet/bin/interchiplet $BENCHMARK_ROOT/bench.yml
 ```
-
+$SIMULATOR_ROOT/interchiplet/bin/interchiplet /home/hao123/hao123/hy1379/Chiplet_Heterogeneous_newVersion/benchmark/my_test/test3/matmul/test_o3.yml
 InterChiplet命令格式如下：
 
 ```
