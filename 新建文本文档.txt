@@ -1,4 +1,0 @@
-            result = subprocess.run([interchiplet_path, yml_path], capture_output=True, text=True)
-'/home/hao123/hao123/hy1379/Chiplet_Heterogeneous_newVersion/benchmark/my_test/test3/matmul/test_o3.yml'
-'/home/hao123/hao123/hy1379/Chiplet_Heterogeneous_newVersion/interchiplet/bin/interchiplet'
-/home/hao123/hao123/hy1379/Chiplet_Heterogeneous_newVersion/interchiplet/bin/interchiplet  /home/hao123/hao123/hy1379/Chiplet_Heterogeneous_newVersion/benchmark/my_test/test3/matmul/test_o3.yml
