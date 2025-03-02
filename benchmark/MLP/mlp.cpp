@@ -128,12 +128,16 @@ void GpuMultiply(double* mat1, double* mat2, int fst_Row, int fst_Col, int sec_R
     int64_t* Mat2 = new int64_t[sec_Row * sec_Col];
     int64_t* Mat1_size = new int64_t[2];
     int64_t* Mat2_size = new int64_t[2];
+    int64_t* flag = new int64_t[1];
+    flag[0] = 1; //表示程序继续执行
     Mat1_size[0] = fst_Row;
     Mat1_size[1] = fst_Col;
     Mat2_size[0] = sec_Row;
     Mat2_size[1] = sec_Col;
     DoubleToInt(mat1, Mat1, fst_Row * fst_Col);
     DoubleToInt(mat2, Mat2, sec_Row * sec_Col);
+    InterChiplet::sendMessage(dstX, dstY, srcX, srcY, flag,
+                              1 * sizeof(int64_t));
     std::cout << "hello" << std::endl;
     InterChiplet::sendMessage(dstX, dstY, srcX, srcY, Mat1_size, 2 * sizeof(int64_t));
     std::cout << "hell0 2" << std::endl;
@@ -168,6 +172,7 @@ void GpuMultiply(double* mat1, double* mat2, int fst_Row, int fst_Col, int sec_R
     delete[] Mat2_size;
     delete[] mat1;
     delete[] mat2;
+    delete[] flag;
     Mat1 = NULL;
     Mat2 = NULL;
     Mat1_size = NULL;
@@ -587,7 +592,10 @@ int main(int argc, char** argv) {
     hidden_size.push_back(15);
     std::vector<std::vector<double>> x_train, x_test;
     std::vector<std::vector<double>> y_train, y_test;
-    if (!readDataFromJSON("../temp_data.json", x_train, x_test, y_train, y_test)) {
+    if (!readDataFromJSON(
+            "/home/hao123/hao123/hy1379/Chiplet_Heterogeneous_newVersion/"
+            "benchmark/MLP/temp_data.json",
+            x_train, x_test, y_train, y_test)) {
         std::cout << "数据读取错误" << std::endl;
     }
     // std::vector<std::vector<double>> Y_train,Y_test;
@@ -596,6 +604,16 @@ int main(int argc, char** argv) {
     train(x_train, y_train, 1);
     // BP.predict_classify(x_test,3,y_test);
     delfile(fileName);
+    std::cout << "all_is_done";
+    int64_t* flag = new int64_t[1];
+    flag[0] = 0;                   //表示程序停止执行
+    for (int i = 0; i <= 1; ++i) { // 外层循环控制第一个数字（0 或 1）
+        for (int j = 1; j <= 4; ++j) { // 内层循环控制第二个数字（1 到 4）
+            InterChiplet::sendMessage(i, j, srcX, srcY, flag,
+                                      1 * sizeof(int64_t));
+        }
+    }
+    std::cout << "all_is_done_well";
     delete[] fileName;
     fileName = NULL;
 }
